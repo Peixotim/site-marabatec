@@ -15,24 +15,27 @@ export default function CursosSlugPage() {
 
   // --- LÓGICA PRINCIPAL ---
 
-  // 1. Tenta encontrar uma categoria correspondente
   const allCoursesForCards = StoragedCourses();
   const filteredByCategory = allCoursesForCards.filter(
     (course) => slugify(course.subTitle) === decodedSlug
   );
 
+  // ==============================
+  // 1️⃣ VISUALIZAÇÃO POR CATEGORIA
+  // ==============================
   if (filteredByCategory.length > 0) {
-    // --- Visualização de Categoria ---
     return (
-      <div className="bg-[#F1F1F1] min-h-screen">
-        <div className="p-8 max-w-7xl mx-auto">
+      <div className="bg-gradient-to-br min-h-screen relative overflow-hidden">
+        {/* Overlay decorativo */}
+        <div className="absolute inset-0 bg-gradient-to-br to-[#F2A413]/10 pointer-events-none"></div>
+
+        <div className="relative p-8 max-w-7xl mx-auto">
+          {/* Botão de voltar */}
           <Link
             href="/"
-            // CORES ALTERADAS
-            className="group relative mb-8 inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#024E0E] px-5 py-2 text-sm font-bold text-white shadow-md transition-all duration-300"
+            className="group relative mb-10 inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#4B0082] px-6 py-2.5 text-sm font-bold text-white shadow-lg transition-all duration-500 hover:scale-105"
           >
-            {/* COR ALTERADA */}
-            <div className="absolute inset-0 w-0 bg-[#1F8A3E] transition-all duration-300 ease-out group-hover:w-full"></div>
+            <div className="absolute inset-0 w-0 bg-[#F2A413] transition-all duration-500 ease-out group-hover:w-full"></div>
             <span className="relative flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,19 +54,21 @@ export default function CursosSlugPage() {
               Voltar
             </span>
           </Link>
-          <h1
-            // COR ALTERADA
-            className="text-4xl font-extrabold mb-4 text-[#F2960E] leading-tight"
-          >
-            Explore os melhores cursos de {/* COR ALTERADA */}
-            <span className="text-[#024E0E]">
+
+          {/* Título da categoria */}
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#4B0082] leading-tight">
+            Explore os melhores cursos de{" "}
+            <span className="text-[#F2A413]">
               {filteredByCategory[0].subTitle}
             </span>
           </h1>
-          <p className="text-slate-700 text-lg mb-8 max-w-2xl">
+
+          <p className="text-[#4B0082]/80 text-lg mb-10 max-w-2xl">
             Aprimore suas habilidades com cursos reconhecidos e conteúdo de alta
             qualidade. Escolha abaixo e invista no seu futuro!
           </p>
+
+          {/* Lista de cursos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredByCategory.map((course, index) => (
               <CourseCard key={index} {...course} />
@@ -74,7 +79,9 @@ export default function CursosSlugPage() {
     );
   }
 
-  // 2. Se não for categoria, tenta encontrar um curso específico
+  // ==============================
+  // 2️⃣ VISUALIZAÇÃO POR CURSO
+  // ==============================
   const allCourseDetails = StoragedCoursesInfo();
   const course = allCourseDetails.find(
     (c: CourseInformationsProps) => slugify(c.title) === decodedSlug
@@ -85,25 +92,23 @@ export default function CursosSlugPage() {
     return <CourseInformations course={course} cardData={cardData} />;
   }
 
-  // 3. Se não encontrou nada, mostra a página de erro
+  // ==============================
+  // 3️⃣ PÁGINA DE ERRO
+  // ==============================
   return (
-    <div className="bg-[#F1F1F1] flex flex-col items-center justify-center min-h-screen text-center p-4">
-      <h1
-        // COR ALTERADA
-        className="text-3xl font-bold text-[#024E0E]"
-      >
+    <div className="bg-gradient-to-br  flex flex-col items-center justify-center min-h-screen text-center p-6">
+      <h1 className="text-4xl font-extrabold text-[#4B0082] mb-3">
         Página não encontrada!
       </h1>
-      <p className="text-slate-600 mt-2 mb-6">
-        O conteúdo que você procura não existe ou foi movido.
+      <p className="text-[#4B0082]/70 text-lg mb-8 max-w-md">
+        O conteúdo que você procura não existe ou foi movido. Verifique o
+        endereço ou volte à página inicial.
       </p>
       <Link
         href="/"
-        // CORES ALTERADAS
-        className="mt-6 inline-flex items-center gap-2 bg-[#024E0E] hover:bg-[#F2960E] text-white
-          px-6 py-3 rounded-lg font-semibold text-lg transition-all duration-500 hover:scale-105 shadow-lg"
+        className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4B0082] via-[#7F2CCB] to-[#F2A413] text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(242,164,19,0.5)]"
       >
-        Voltar para Início
+        Voltar para o Início
       </Link>
     </div>
   );

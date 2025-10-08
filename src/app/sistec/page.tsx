@@ -1,32 +1,20 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { Dot } from "lucide-react";
 import ConsultorModalTrigger from "./ConsultorModalTrigger";
 import Image from "next/image";
 
-export const metadata = {
-  title: "Aprovados pelo SISTEC-MEC | Colégio AvançaTec",
-  description:
-    "O Colégio AvançaTec possui registro e conformidade no SISTEC/MEC. Certificação oficial reconhecida, transparência e qualidade na diplomação.",
-  openGraph: {
-    title: "Aprovados pelo SISTEC-MEC | Colégio AvançaTec",
-    description:
-      "Instituição com registro e conformidade no SISTEC/MEC. Certificação oficial, transparência e qualidade.",
-    type: "website",
-  },
-};
-
 export default function PageSistecMec() {
   return (
-    <main className="min-h-screen bg-[#024E0E] text-white">
-      {/* HERO */}
+    <main className="min-h-screen bg-[#4B0082] text-white font-sans">
       <section className="relative isolate overflow-hidden py-16 sm:py-20">
-        <div className="pointer-events-none absolute inset-0 opacity-10 [background:radial-gradient(60%_60%_at_50%_40%,#ffffff_0%,transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(60%_60%_at_50%_40%,#F2A413_0%,transparent_60%)]" />
         <div className="container mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
             {/* Coluna esquerda */}
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs tracking-wide uppercase">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide uppercase">
                 <Dot className="h-3 w-3 fill-current" />
                 Educação Técnica de Excelência
               </span>
@@ -39,7 +27,7 @@ export default function PageSistecMec() {
               </h1>
               <p className="mt-4 max-w-2xl text-white/80">
                 Confiança que se comprova: o{" "}
-                <strong className="text-white">Colégio AvançaTec</strong> possui{" "}
+                <strong className="text-white">Colégio MarabáTec</strong> possui{" "}
                 <strong>registro e conformidade</strong> no{" "}
                 <strong>SISTEC/MEC</strong>, garantindo certificação oficial,
                 transparência e qualidade em cada diplomação.
@@ -49,14 +37,14 @@ export default function PageSistecMec() {
                 <Link
                   href="https://sistec.mec.gov.br/consultapublicaunidadeensino"
                   target="_blank"
-                  className="inline-flex items-center justify-center rounded-2xl bg-[#F2A413] px-5 py-3 font-semibold text-[#024E0E] shadow-md shadow-black/10 transition hover:scale-[1.03] hover:shadow-[#F2A413]/40"
+                  className="inline-flex items-center justify-center rounded-2xl bg-[#F2A413] px-5 py-3 font-semibold text-[#4B0082] shadow-md shadow-black/20 transition hover:scale-[1.03] hover:shadow-[#F2A413]/40"
                 >
                   Verificar no SISTEC
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
 
                 <ConsultorModalTrigger
-                  className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/0 px-5 py-3 font-semibold text-white/90 backdrop-blur-sm transition hover:bg-white/10"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-5 py-3 font-semibold text-white/90 backdrop-blur-sm transition hover:bg-white/10"
                   selectedContent="SISTEC-MEC – Verificação e Matrícula"
                   whatsappNumber="5531999022636"
                 >
@@ -74,7 +62,7 @@ export default function PageSistecMec() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 rounded-xl bg-white/5 ring-1 ring-white/10 p-3"
+                    className="flex items-start gap-3 rounded-xl bg-white/10 ring-1 ring-white/10 p-3 backdrop-blur-sm"
                   >
                     <CheckCircle className="mt-0.5 h-5 w-5 text-[#F2A413]" />
                     <span className="text-white/90">{item}</span>
@@ -85,14 +73,16 @@ export default function PageSistecMec() {
 
             {/* Coluna direita */}
             <div className="relative">
-              <div className="rounded-3xl bg-gradient-to-b from-white/10 to-white/5 p-6 ring-1 ring-white/10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
+              <div className="rounded-3xl bg-white/10 backdrop-blur-md p-6 ring-1 ring-white/20 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]">
                 <div className="flex items-center gap-4">
                   <SealSistec className="h-16 w-16 shrink-0" />
                   <div>
                     <p className="text-sm uppercase tracking-wide text-white/70">
                       Selo de Conformidade
                     </p>
-                    <p className="text-xl font-bold">Aprovação SISTEC-MEC</p>
+                    <p className="text-xl font-bold text-[#F2A413]">
+                      Aprovação SISTEC-MEC
+                    </p>
                   </div>
                 </div>
                 <dl className="mt-6 grid grid-cols-3 gap-4">
@@ -107,13 +97,13 @@ export default function PageSistecMec() {
                     }
                   />
                 </dl>
-                <p className="mt-6 text-xs text-white/60">
+                <p className="mt-6 text-xs text-white/70">
                   Todos os certificados emitidos seguem os requisitos legais e
                   podem ser validados oficialmente no SISTEC/MEC.
                 </p>
               </div>
 
-              <figure className="mt-4 overflow-hidden rounded-2xl bg-white ring-1 ring-black/10">
+              <figure className="mt-4 overflow-hidden rounded-2xl bg-white ring-1 ring-[#4B0082]/10">
                 <Image
                   src="/images/Sistec.webp"
                   alt="Portal SISTEC/MEC — Consulta Pública"
@@ -129,7 +119,7 @@ export default function PageSistecMec() {
                   <Link
                     href="https://sistec.mec.gov.br/consultapublicaunidadeensino"
                     target="_blank"
-                    className="font-semibold text-[#024E0E] hover:underline"
+                    className="font-semibold text-[#4B0082] hover:underline"
                   >
                     Verificar agora
                   </Link>
@@ -141,17 +131,17 @@ export default function PageSistecMec() {
       </section>
 
       {/* FAQ */}
-      <section className="py-10 sm:py-14 bg-[#046D18]">
+      <section className="py-16">
         <div className="container mx-auto max-w-5xl px-6">
-          <h2 className="text-2xl sm:text-3xl font-extrabold">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-10">
             Perguntas <span className="text-[#F2A413]">Frequentes</span>
           </h2>
-          <div className="mt-6 divide-y divide-white/10 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <div className="divide-y divide-white/10 rounded-2xl bg-white/10 ring-1 ring-white/20 backdrop-blur-md">
             {FAQ.map((f) => (
               <details key={f.q} className="group p-5">
                 <summary className="cursor-pointer list-none font-semibold flex items-center justify-between">
                   <span>{f.q}</span>
-                  <span className="ml-4 rounded-full border border-white/15 bg-white/0 p-1 text-xs text-white/60 group-open:rotate-180 transition">
+                  <span className="ml-4 rounded-full border border-white/15 bg-white/5 p-1 text-xs text-white/60 group-open:rotate-180 transition">
                     <ArrowDown className="h-4 w-4" />
                   </span>
                 </summary>
@@ -163,25 +153,29 @@ export default function PageSistecMec() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-12 bg-[#024E0E]">
+      <section className="py-16">
         <div className="container mx-auto max-w-6xl px-6">
-          <div className="flex flex-col items-center justify-between gap-4 rounded-3xl bg-[#046D18] p-6 ring-1 ring-white/10 sm:flex-row">
-            <p className="text-lg font-semibold">
+          <div className="flex flex-col items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-[#6b00ce] to-[#7F2CCB] p-8 ring-1 ring-white/20 sm:flex-row">
+            <p className="text-lg font-semibold text-white text-center sm:text-left">
               Pronto para validar sua formação com{" "}
-              <span className="text-[#F2A413]">Certificação Oficial</span>?
+              <span className="text-amber-300 font-extrabold">
+                Certificação Oficial
+              </span>
+              ?
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center sm:justify-end">
               <Link
                 href="https://sistec.mec.gov.br/consultapublicaunidadeensino"
                 target="_blank"
-                className="inline-flex items-center justify-center rounded-2xl bg-[#F2A413] px-5 py-3 font-semibold text-[#024E0E] shadow-md transition hover:scale-[1.02]"
+                className="inline-flex items-center justify-center rounded-2xl bg-white text-[#4B0082] px-5 py-3 font-semibold shadow-md transition hover:scale-[1.03]"
               >
+            
                 Verificar no SISTEC
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
 
               <ConsultorModalTrigger
-                className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-5 py-3 font-semibold text-white/90 hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-5 py-3 font-semibold text-white/90 hover:bg-white/10"
                 selectedContent="SISTEC-MEC – Verificação e Matrícula"
                 whatsappNumber="5531999022636"
               >
@@ -217,7 +211,7 @@ const FAQ = [
 
 function Stat({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="rounded-2xl bg-[#024E0E] p-4 text-center ring-1 ring-white/10">
+    <div className="rounded-2xl bg-[#4B0082]/30 p-4 text-center ring-1 ring-white/10">
       <div className="text-2xl font-extrabold text-[#F2A413]">{value}</div>
       <div className="mt-1 text-[11px] uppercase tracking-wide text-white/70">
         {label}
@@ -240,7 +234,7 @@ function SealSistec(props: React.SVGProps<SVGSVGElement>) {
         cx="60"
         cy="60"
         r="49"
-        fill="#024E0E"
+        fill="#4B0082"
         stroke="#F2A413"
         strokeWidth="3"
       />

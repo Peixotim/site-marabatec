@@ -2,28 +2,36 @@ import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#024E0E] to-[#01350B] text-white">
-      <div className="container mx-auto px-4 py-16">
+    <footer className="relative bg-gradient-to-b from-[#4B0082] via-[#7F2CCB] to-[#2A004F] text-white overflow-hidden">
+      {/* Overlay brilhante */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#F2A413]/10 via-transparent to-[#7F2CCB]/10"></div>
+
+      <div className="relative container mx-auto px-6 py-16 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* COLUNA 1 - SOBRE */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#F2A413] rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-[#024E0E] font-extrabold text-xl">A</span>
+              <div className="w-12 h-12 bg-[#F2A413] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(242,164,19,0.4)]">
+                <span className="text-[#4B0082] font-extrabold text-2xl">
+                  M
+                </span>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#F2A413]">AvançaTec</h3>
+                <h3 className="text-2xl font-bold text-[#F2A413] leading-none">
+                  MarabáTec
+                </h3>
                 <p className="text-xs text-[#F2A413]/90">
                   Educação Técnica de Excelência
                 </p>
               </div>
             </div>
-            <p className="text-sm text-white/80 leading-relaxed">
+
+            <p className="text-sm text-white/80 leading-relaxed max-w-xs">
               Transformando vidas através da educação. Construindo profissionais
-              do futuro com competência e inovação.
+              do futuro com competência, tecnologia e inovação.
             </p>
 
-            <div className="flex space-x-4 pt-2">
+            <div className="flex space-x-4 pt-3">
               <a
                 href="https://www.instagram.com/avancatec.oficial"
                 target="_blank"
@@ -42,31 +50,22 @@ const Footer = () => {
               Cursos
             </h4>
             <ul className="space-y-3 text-sm text-white/80">
-              <li>
-                <a href="#cursos" className="hover:text-[#F2A413]">
-                  Área da Saúde
-                </a>
-              </li>
-              <li>
-                <a href="#cursos" className="hover:text-[#F2A413]">
-                  Administração & Gestão
-                </a>
-              </li>
-              <li>
-                <a href="#cursos" className="hover:text-[#F2A413]">
-                  Tecnologia e Informática
-                </a>
-              </li>
-              <li>
-                <a href="#cursos" className="hover:text-[#F2A413]">
-                  Engenharia & Manutenção
-                </a>
-              </li>
-              <li>
-                <a href="#cursos" className="hover:text-[#F2A413]">
-                  Construção e Infraestrutura
-                </a>
-              </li>
+              {[
+                "Área da Saúde",
+                "Administração & Gestão",
+                "Tecnologia e Informática",
+                "Engenharia & Manutenção",
+                "Construção e Infraestrutura",
+              ].map((curso) => (
+                <li key={curso}>
+                  <a
+                    href="#cursos"
+                    className="hover:text-[#F2A413] transition-colors"
+                  >
+                    {curso}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -76,31 +75,22 @@ const Footer = () => {
               Links Úteis
             </h4>
             <ul className="space-y-3 text-sm text-white/80">
-              <li>
-                <a href="#inicio" className="hover:text-[#F2A413]">
-                  Início
-                </a>
-              </li>
-              <li>
-                <a href="#cursos" className="hover:text-[#F2A413]">
-                  Cursos
-                </a>
-              </li>
-              <li>
-                <a href="#contato" className="hover:text-[#F2A413]">
-                  Contato
-                </a>
-              </li>
-              <li>
-                <a href="#Certificado" className="hover:text-[#F2A413]">
-                  Certificação
-                </a>
-              </li>
-              <li>
-                <a href="/sistec" className="hover:text-[#F2A413]">
-                  SISTEC-MEC
-                </a>
-              </li>
+              {[
+                { href: "#inicio", label: "Início" },
+                { href: "#cursos", label: "Cursos" },
+                { href: "#contato", label: "Contato" },
+                { href: "#Certificado", label: "Certificação" },
+                { href: "/sistec", label: "SISTEC-MEC" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="hover:text-[#F2A413] transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -113,23 +103,25 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 mt-1 text-[#F2A413]" />
                 <span>
-                  R. Luiz Rodrigues dos Santos
-                  <br />
-                  Cel. Fabriciano - MG
+                  R. Luiz Rodrigues dos Santos, 44 <br />
+                  Todos os Santos – Cel. Fabriciano - MG
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#F2A413]" />
                 <a
-                  href="mailto:ilconsultoria@outlook.com"
-                  className="hover:text-[#F2A413]"
+                  href="mailto:gestaoavancatec@gmail.com"
+                  className="hover:text-[#F2A413] transition-colors"
                 >
                   gestaoavancatec@gmail.com
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#F2A413]" />
-                <a href="tel:+5531982631563" className="hover:text-[#F2A413]">
+                <a
+                  href="tel:+5531982631563"
+                  className="hover:text-[#F2A413] transition-colors"
+                >
                   (31) 98263-1563
                 </a>
               </li>
@@ -140,10 +132,10 @@ const Footer = () => {
         {/* COPYRIGHT */}
         <div className="mt-16 pt-8 border-t border-[#F2A413]/20 text-center">
           <p className="text-sm text-white/70">
-            © {new Date().getFullYear()} AvançaTec. Todos os direitos
+            © {new Date().getFullYear()} MarabáTec — Todos os direitos
             reservados.
           </p>
-          <p className="text-sm text-white/70">CNPJ: 38.063.045/0001-88</p>
+          <p className="text-sm text-white/60 mt-1">CNPJ: 38.063.045/0001-88</p>
         </div>
       </div>
     </footer>

@@ -86,16 +86,14 @@ export default function CourseInformations({
   const categorySlug = cardData ? slugify(cardData.subTitle) : "";
 
   return (
-    <div className="relative bg-[#F9FBF9] font-sans overflow-hidden">
-      <div
-        className="absolute top-0 left-0 w-full h-1/2 bg-gradient-radial from-[#024E0E]/10 via-[#046D18]/10 to-transparent pointer-events-none"
-        aria-hidden="true"
-      />
+    <div className="relative bg-gradient-to-br font-sans overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br  to-[#F2A413]/10 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 z-10">
+        {/* Botão Voltar */}
         <Link
           href={categorySlug ? `/cursos/${categorySlug}` : "/"}
-          className="group mb-8 inline-flex items-center gap-2 text-[#024E0E] font-semibold hover:text-[#046D18] transition-colors"
+          className="group mb-8 inline-flex items-center gap-2 text-[#4B0082] font-semibold hover:text-[#F2A413] transition-colors"
         >
           <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
           Voltar para {cardData?.subTitle || "Cursos"}
@@ -104,15 +102,15 @@ export default function CourseInformations({
         {/* Cabeçalho */}
         <header className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <div className="flex flex-col gap-4 pt-4">
-            <span className="font-bold text-[#046D18] uppercase tracking-wider">
+            <span className="font-bold text-[#7F2CCB] uppercase tracking-wider">
               {cardData?.subTitle}
             </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-[#024E0E] tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl font-black text-[#4B0082] tracking-tight">
               {course.title}
             </h1>
-            <p className="text-lg text-[#475569] leading-relaxed">
+            <p className="text-lg text-[#5A5470] leading-relaxed">
               Transforme sua carreira com um curso prático, focado no mercado e
-              com certificado reconhecido.
+              com certificação reconhecida.
             </p>
 
             {cardData && cardData.rating > 0 && (
@@ -122,17 +120,17 @@ export default function CourseInformations({
                     <Star key={index} className="w-6 h-6" fill="currentColor" />
                   )
                 )}
-                <span className="text-sm text-[#475569] font-medium ml-2">
+                <span className="text-sm text-[#5A5470] font-medium ml-2">
                   ({cardData.rating.toFixed(1)} de 5 estrelas)
                 </span>
               </div>
             )}
           </div>
 
-          {/* O que vai aprender */}
-          {course.whatYouWillLearn && course.whatYouWillLearn.length > 0 && (
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#E2E8F0]">
-              <h2 className="text-2xl font-bold text-[#024E0E] mb-6 flex items-center gap-3">
+          {/* O que você vai aprender */}
+          {course.whatYouWillLearn?.length ? (
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[#E5D0FF]">
+              <h2 className="text-2xl font-bold text-[#4B0082] mb-6 flex items-center gap-3">
                 <Award className="text-[#F2A413]" /> O que você vai aprender
               </h2>
               <ul className="space-y-4">
@@ -142,37 +140,37 @@ export default function CourseInformations({
                       className="text-[#F2A413] mt-1 flex-shrink-0"
                       size={20}
                     />
-                    <span className="text-[#475569]">{item}</span>
+                    <span className="text-[#5A5470]">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          )}
+          ) : null}
         </header>
 
         {/* CTA */}
-        <div className="mt-12 lg:mt-16 bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-[#E2E8F0] grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="mt-12 lg:mt-16 bg-gradient-to-br from-[#4B0082] via-[#7F2CCB] to-[#4B0082] rounded-2xl p-8 shadow-xl grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-white">
           {course.img && (
             <div className="md:col-span-1 aspect-[4/3] relative rounded-xl overflow-hidden">
               <Image
                 src={course.img.src}
                 alt={course.img.alt}
                 fill
-                className="object-cover"
+                className="object-cover opacity-90 hover:opacity-100 transition-all"
               />
             </div>
           )}
 
           <div className="md:col-span-2 flex flex-col items-center text-center">
-            <h3 className="text-2xl font-bold text-[#024E0E]">
+            <h3 className="text-2xl font-bold text-white">
               Pronto para dar o próximo passo?
             </h3>
-            <p className="text-[#475569] mt-2">
+            <p className="text-white/90 mt-2">
               Garanta sua vaga e comece a transformar sua carreira agora mesmo.
             </p>
             <button
               onClick={openModal}
-              className="mt-6 w-full max-w-xs flex flex-col items-center justify-center gap-1 bg-gradient-to-r from-[#024E0E] to-[#046D18] text-white p-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg hover:scale-105 hover:shadow-[#024E0E]/40"
+              className="mt-6 w-full max-w-xs flex flex-col items-center justify-center gap-1 bg-white/10 text-white p-4 rounded-lg font-bold text-lg transition-all duration-300 border border-white/20 hover:bg-white/20 hover:scale-105"
             >
               <div className="flex items-center gap-2">
                 <CheckCircle size={22} className="text-[#F2A413]" />
@@ -185,14 +183,14 @@ export default function CourseInformations({
           </div>
         </div>
 
-        {/* Conteúdo principal */}
+        {/* Conteúdo */}
         <main className="mt-12 lg:mt-16 space-y-8">
           {course.sections.map((section, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-8 shadow-lg border border-[#E2E8F0]"
+              className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-[#E5D0FF]"
             >
-              <h2 className="text-2xl font-bold text-[#024E0E] mb-4 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-[#4B0082] mb-4 flex items-center gap-3">
                 {section.title.includes("Objetivo") ? (
                   <Target className="text-[#F2A413]" />
                 ) : (
@@ -201,15 +199,15 @@ export default function CourseInformations({
                 {section.title}
               </h2>
               <div
-                className="prose max-w-none text-[#475569] leading-relaxed"
+                className="prose max-w-none text-[#5A5470] leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: section.content }}
               />
             </div>
           ))}
 
-          {/* Depoimentos */}
+          {/* Depoimento */}
           {course.depoiments && (
-            <div className="bg-gradient-to-r from-[#024E0E] to-[#046D18] rounded-xl p-8 sm:p-12 shadow-xl text-center text-white">
+            <div className="bg-gradient-to-r from-[#4B0082] via-[#7F2CCB] to-[#7F2CCB] rounded-xl p-10 sm:p-12 shadow-2xl text-center text-white">
               <blockquote className="max-w-3xl mx-auto">
                 <p className="text-2xl sm:text-3xl font-light italic text-[#F2A413]">
                   “{course.depoiments.texto}”
