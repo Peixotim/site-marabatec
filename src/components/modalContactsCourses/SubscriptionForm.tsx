@@ -52,11 +52,11 @@ export default function SubscriptionForm({
   if (formStatus === "loading") {
     return (
       <div className="flex flex-col items-center justify-center p-8 min-h-[450px]">
-        <Loader2 className="w-12 h-12 text-[#024E0E] animate-spin" />
-        <h3 className="mt-6 text-xl font-semibold text-slate-700">
+        <Loader2 className="w-12 h-12 text-[#4B0082] animate-spin" />
+        <h3 className="mt-6 text-xl font-semibold text-[#4B0082]">
           Aguarde um momento...
         </h3>
-        <p className="text-slate-500 mt-1">
+        <p className="text-[#5A5470] mt-1">
           Estamos processando sua inscrição.
         </p>
       </div>
@@ -67,21 +67,21 @@ export default function SubscriptionForm({
     return (
       <div className="text-center p-8 flex flex-col items-center justify-center min-h-[450px]">
         <div className="relative">
-          <CheckCircle className="w-20 h-20 text-green-500" />
+          <CheckCircle className="w-20 h-20 text-[#4B0082]" />
           <div className="absolute -top-2 -right-2 bg-white rounded-full p-1">
             <span className="text-2xl">🎉</span>
           </div>
         </div>
-        <h3 className="text-3xl font-extrabold text-slate-800 mt-6">
+        <h3 className="text-3xl font-extrabold text-[#4B0082] mt-6">
           Inscrição enviada!
         </h3>
-        <p className="text-slate-600 mt-2 max-w-sm">
+        <p className="text-[#5A5470] mt-2 max-w-sm">
           Seu primeiro passo foi dado! Agora, vamos finalizar sua matrícula pelo
           WhatsApp.
         </p>
         <button
           onClick={onSuccessRedirect}
-          className="group mt-8 w-full max-w-xs flex items-center justify-center gap-3 bg-gradient-to-br from-green-600 to-green-500 text-white px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/50 hover:-translate-y-1"
+          className="group mt-8 w-full max-w-xs flex items-center justify-center gap-3 bg-gradient-to-br from-[#4B0082] to-[#7F2CCB] text-white px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#4B0082]/30 hover:shadow-xl hover:shadow-[#4B0082]/50 hover:-translate-y-1"
         >
           <Send size={20} />
           <span>Finalizar no WhatsApp</span>
@@ -92,15 +92,15 @@ export default function SubscriptionForm({
 
   // ====== Formulário principal ======
   return (
-    <div className="p-8 bg-slate-50/50">
+    <div className="p-8 bg-slate-50/50 rounded-2xl">
       <div className="text-center mb-8">
-        <h3 className="text-3xl font-extrabold text-[#024E0E]">
+        <h3 className="text-3xl font-extrabold text-[#4B0082]">
           Inscreva-se em <br />
-          <span className="bg-gradient-to-r from-green-500 to-[#024E0E] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#7F2CCB] to-[#F2A413] bg-clip-text text-transparent">
             {selectedContent}
           </span>
         </h3>
-        <p className="text-slate-500 mt-2">
+        <p className="text-[#5A5470] mt-2">
           Preencha seus dados para começar a transformação.
         </p>
       </div>
@@ -110,7 +110,7 @@ export default function SubscriptionForm({
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-black mb-1"
+            className="block text-sm font-medium text-[#4B0082] mb-1"
           >
             Nome Completo
           </label>
@@ -120,7 +120,7 @@ export default function SubscriptionForm({
             id="name"
             required
             placeholder="Seu nome aqui"
-            className="mt-1 block w-full text-black px-4 py-3 rounded-xl border-slate-300 bg-white shadow-sm transition-colors duration-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50"
+            className="mt-1 block w-full text-[#4B0082] px-4 py-3 rounded-xl border-[#E0D0FF] bg-white shadow-sm transition-colors duration-300 focus:border-[#F2A413] focus:ring-2 focus:ring-[#F2A413]/50"
           />
         </div>
 
@@ -128,7 +128,7 @@ export default function SubscriptionForm({
         <div>
           <label
             htmlFor="whatsapp"
-            className="block text-sm font-medium text-black mb-1"
+            className="block text-sm font-medium text-[#4B0082] mb-1"
           >
             WhatsApp
           </label>
@@ -141,7 +141,7 @@ export default function SubscriptionForm({
             onChange={handleWhatsappChange}
             placeholder="(XX) XXXXX-XXXX"
             maxLength={15}
-            className="mt-1 block w-full px-4 py-3 text-black rounded-xl border-slate-300 bg-white shadow-sm transition-colors duration-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50"
+            className="mt-1 block w-full px-4 py-3 text-[#4B0082] rounded-xl border-[#E0D0FF] bg-white shadow-sm transition-colors duration-300 focus:border-[#F2A413] focus:ring-2 focus:ring-[#F2A413]/50"
           />
         </div>
 
@@ -149,7 +149,7 @@ export default function SubscriptionForm({
         <div>
           <label
             htmlFor="interestArea"
-            className="block text-sm font-medium text-black mb-1"
+            className="block text-sm font-medium text-[#4B0082] mb-1"
           >
             Área de Interesse
           </label>
@@ -159,7 +159,7 @@ export default function SubscriptionForm({
             id="interestArea"
             required
             placeholder="Ex: Saúde, Tecnologia, Gestão"
-            className="mt-1 block w-full px-4 py-3 text-black rounded-xl border-slate-300 bg-white shadow-sm transition-colors duration-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/50"
+            className="mt-1 block w-full px-4 py-3 text-[#4B0082] rounded-xl border-[#E0D0FF] bg-white shadow-sm transition-colors duration-300 focus:border-[#F2A413] focus:ring-2 focus:ring-[#F2A413]/50"
           />
         </div>
 
@@ -179,7 +179,7 @@ export default function SubscriptionForm({
             disabled={!lgpdAccepted}
             className={`group w-full flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-lg font-bold text-white transition-all duration-300 ${
               lgpdAccepted
-                ? "bg-gradient-to-br from-[#024E0E] to-[#024E0E] shadow-lg shadow-[#024E0E]/30 hover:shadow-xl hover:shadow-[#024E0E]/50 hover:-translate-y-1"
+                ? "bg-gradient-to-br from-[#4B0082] to-[#7F2CCB] shadow-lg shadow-[#4B0082]/30 hover:shadow-xl hover:shadow-[#4B0082]/50 hover:-translate-y-1"
                 : "bg-zinc-400 cursor-not-allowed"
             }`}
           >
@@ -190,7 +190,7 @@ export default function SubscriptionForm({
           <button
             type="button"
             onClick={onCancel}
-            className="w-full justify-center rounded-xl bg-transparent px-4 py-3 text-base font-medium text-slate-600 transition-colors hover:bg-slate-200/70"
+            className="w-full justify-center rounded-xl bg-transparent px-4 py-3 text-base font-medium text-[#4B0082] border border-[#E0D0FF] transition-colors hover:bg-[#F9F5FF]"
           >
             Cancelar
           </button>
