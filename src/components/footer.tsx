@@ -103,8 +103,8 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 mt-1 text-[#F2A413]" />
                 <span>
-                  R. Luiz Rodrigues dos Santos, 44 <br />
-                  Todos os Santos – Cel. Fabriciano - MG
+                  Av. Antônio Vilhena, 551 <br />
+                  Idependência Núcleo Cidade Nova. Marabá/PA
                 </span>
               </li>
               <li className="flex items-center space-x-3">

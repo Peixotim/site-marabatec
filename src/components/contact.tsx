@@ -23,16 +23,16 @@ export default function Contact() {
     {
       icon: <Instagram className="w-6 h-6 text-[#E1306C]" />,
       label: "Instagram",
-      value: "@avancatecoficial",
-      href: "https://www.instagram.com/avancatecoficial/",
+      value: "@maraba.tec",
+      href: "https://www.instagram.com/maraba.tec/",
       shadowColor: "rgba(225,48,108,0.35)",
     },
     {
       icon: <MapPin className="w-6 h-6 text-[#4B0082]" />,
       label: "Endereço",
       value:
-        "R. Luiz Rodrigues dos Santos, 44 - Todos Os Santos, Cel. Fabriciano - MG",
-      href: "https://www.google.com/maps/search/?api=1&query=R.+Luiz+Rodrigues+dos+Santos,+44+-+Todos+Os+Santos,+Cel.+Fabriciano+-+MG",
+        "Av. Antônio Vilhena, 551 - Bairro Independência Núcleo Cidade Nova. Marabá/PA",
+      href: "",
       shadowColor: "rgba(75,0,130,0.25)",
     },
   ];
