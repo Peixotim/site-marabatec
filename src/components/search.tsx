@@ -14,7 +14,7 @@ export default function SearchSection({
   onFilterChange,
 }: SearchSectionProps) {
   return (
-    <section className="w-full bg-gradient-to-b from-[#4B0082]/5 via-white to-[#F2960E]/10 py-16 px-4 sm:px-8 text-center">
+    <section className="w-full bg-gradient-to-b from-[#4B0082]/5 via-white py-16 px-4 sm:px-8 text-center">
       <div className="max-w-5xl mx-auto">
         {/* Título */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#4B0082] tracking-tight drop-shadow-sm">
