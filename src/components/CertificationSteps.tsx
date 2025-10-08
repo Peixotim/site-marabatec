@@ -38,30 +38,30 @@ function CertificationSteps() {
 
   return (
     <div className="w-full max-w-6xl mx-auto mt-16">
-      {/* Container principal verde */}
-      <div className="bg-gradient-to-br from-[#024E0E] via-[#046D18] to-[#01380B] text-white shadow-xl rounded-2xl overflow-hidden border border-[#F2A413]/30">
+      {/* Container principal roxo */}
+      <div className="bg-gradient-to-br from-[#4B0082] via-[#7F2CCB] to-[#803dcd] text-white shadow-2xl rounded-3xl overflow-hidden border border-[#F2A413]/30">
         {/* Cabeçalho */}
-        <div className="p-6 md:p-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-center text-[#F2A413] tracking-tight flex items-center justify-center gap-3">
-            <Zap className="w-7 h-7" />
+        <div className="p-6 md:p-8 text-center">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#F2A413] tracking-tight flex items-center justify-center gap-3">
+            <Zap className="w-7 h-7 text-[#F2A413]" />
             <span>Certificação Rápida por Competência</span>
           </h3>
-          <p className="text-center text-white/80 mt-2 text-base sm:text-lg">
+          <p className="text-white/80 mt-2 text-base sm:text-lg">
             Conquiste seu diploma em 3 etapas simples.
           </p>
         </div>
 
         {/* Corpo das Etapas */}
-        <div className="flex flex-col md:flex-row bg-[#01380B]/30">
+        <div className="flex flex-col md:flex-row bg-[#300C55]/40 backdrop-blur-sm">
           {/* Menu lateral de etapas */}
           <div className="flex md:flex-col justify-around md:justify-start p-4 md:p-6 border-b-2 md:border-b-0 md:border-r-2 border-[#F2A413]/20">
             {steps.map((step) => (
               <button
                 key={step.id}
                 onClick={() => setActiveStep(step.id)}
-                className={`w-full text-left p-3 sm:p-4 rounded-lg transition-all duration-300 text-sm sm:text-base font-semibold ${
+                className={`w-full text-left p-3 sm:p-4 rounded-xl transition-all duration-300 text-sm sm:text-base font-semibold ${
                   activeStep === step.id
-                    ? "bg-[#F2A413] text-[#024E0E] scale-105 shadow-lg"
+                    ? "bg-[#F2A413] text-[#4B0082] scale-105 shadow-[0_0_20px_rgba(242,164,19,0.3)]"
                     : "bg-transparent text-white/70 hover:bg-white/10 hover:text-white"
                 }`}
               >
@@ -78,7 +78,7 @@ function CertificationSteps() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
                 className="min-h-[180px] sm:min-h-[160px]"
               >
                 <h4 className="text-xl sm:text-2xl font-bold mb-3 flex items-center gap-3 text-[#F2A413]">
@@ -104,19 +104,22 @@ function CertificationSteps() {
 
 export default function CertificationSection() {
   return (
-    <section className="bg-[#F9FBF9] py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 sm:py-28 overflow-hidden">
+      {/* Overlay decorativo */}
+      <div className="absolute inset-0 bg-gradient-to-br pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Banner superior */}
         <div className="text-center">
-          <span className="inline-block rounded-full border border-[#024E0E]/40 px-4 py-1.5 text-sm font-semibold text-[#024E0E]">
+          <span className="inline-block rounded-full border border-[#4B0082]/30 px-4 py-1.5 text-sm font-semibold text-[#4B0082] bg-white/50 backdrop-blur-md">
             Certificação por Competência
           </span>
           <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter uppercase">
             <span className="text-[#F2A413]">Certificação</span>
-            <span className="text-black/80 font-medium"> por </span>
-            <span className="text-[#024E0E]">Competência</span>
+            <span className="text-[#4B0082]/90 font-medium"> por </span>
+            <span className="text-[#7F2CCB]">Competência</span>
           </h1>
-          <p className="max-w-3xl mx-auto mt-4 text-lg md:text-xl text-[#024E0E]/90 leading-relaxed">
+          <p className="max-w-3xl mx-auto mt-4 text-lg md:text-xl text-[#4B0082]/80 leading-relaxed">
             Reconhecemos sua experiência profissional e transformamos em
             certificação oficial. Um caminho mais rápido para obter sua
             qualificação técnica.
