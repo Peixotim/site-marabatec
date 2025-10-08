@@ -6,13 +6,13 @@ export default function SchemaOrg() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    name: "Colégio AvançaTec",
-    image: "https://colegioavancatec.com.br/logo.png",
-    "@id": "https://colegioavancatec.com.br",
-    url: "https://colegioavancatec.com.br",
+    name: "Colégio MarabáTec",
+    image: "https://colegiomarabatec.com.br/logo.png",
+    "@id": "https://colegiomarabatec.com.br",
+    url: "https://colegiomarabatec.com.br",
     telephone: "+55-31-99902-2636",
     description:
-      "O Colégio AvançaTec oferece cursos técnicos e profissionalizantes reconhecidos pelo MEC. Educação de qualidade para transformar sua carreira.",
+      "O Colégio MarabáTec oferece cursos técnicos e profissionalizantes reconhecidos pelo MEC. Educação moderna e de qualidade para transformar seu futuro.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Rua Canaã dos Carajás, 94, Bairro Vale Dourado",
@@ -22,15 +22,15 @@ export default function SchemaOrg() {
       addressCountry: "BR",
     },
     sameAs: [
-      "https://www.instagram.com/colegioavancatec",
-      "https://www.facebook.com/colegioavancatec",
-      "https://colegioavancatec.com.br",
+      "https://www.instagram.com/colegiomarabatec",
+      "https://www.facebook.com/colegiomarabatec",
+      "https://colegiomarabatec.com.br",
     ],
     openingHours: "Mo-Fr 08:00-18:00",
-    logo: "https://colegioavancatec.com.br/logo.png",
+    logo: "https://colegiomarabatec.com.br/logo.png",
     founder: {
-      "@type": "Person",
-      name: "Colégio AvançaTec",
+      "@type": "Organization",
+      name: "Colégio MarabáTec",
     },
   };
 
