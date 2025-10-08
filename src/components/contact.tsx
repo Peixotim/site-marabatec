@@ -8,9 +8,16 @@ export default function Contact() {
   const contacts = [
     {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
-      label: "Telefone / WhatsApp",
-      value: "(31) 98263-1563",
-      href: "https://wa.me/31982631563",
+      label: "Telefone / WhatsApp (Comercial)",
+      value: "(94) 99285-9465",
+      href: "https://wa.me/94992859465",
+      shadowColor: "rgba(37,211,102,0.4)",
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
+      label: "Telefone / WhatsApp (Pedagogico / Administrativo)",
+      value: "(94) 9192-3687",
+      href: "https://wa.me/559491923687",
       shadowColor: "rgba(37,211,102,0.4)",
     },
     {
@@ -33,6 +40,13 @@ export default function Contact() {
       value:
         "Av. Antônio Vilhena, 551 - Bairro Independência Núcleo Cidade Nova. Marabá/PA",
       href: "",
+      shadowColor: "rgba(75,0,130,0.25)",
+    },
+    {
+      icon: <Mail className="w-6 h-6 text-red-500" />,
+      label: "Email (Suporte)",
+      value: "email@gmail.com",
+      href: "email@gmail.com",
       shadowColor: "rgba(75,0,130,0.25)",
     },
   ];
