@@ -169,7 +169,6 @@ export default function PageSistecMec() {
                 target="_blank"
                 className="inline-flex items-center justify-center rounded-2xl bg-white text-[#4B0082] px-5 py-3 font-semibold shadow-md transition hover:scale-[1.03]"
               >
-            
                 Verificar no SISTEC
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
