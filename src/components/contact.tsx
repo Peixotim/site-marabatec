@@ -34,21 +34,6 @@ export default function Contact() {
       href: "https://www.instagram.com/maraba.tec/",
       shadowColor: "rgba(225,48,108,0.35)",
     },
-    {
-      icon: <MapPin className="w-6 h-6 text-[#4B0082]" />,
-      label: "Endereço",
-      value:
-        "Av. Antônio Vilhena, 551 - Bairro Independência Núcleo Cidade Nova. Marabá/PA",
-      href: "",
-      shadowColor: "rgba(75,0,130,0.25)",
-    },
-    {
-      icon: <Mail className="w-6 h-6 text-red-500" />,
-      label: "Email (Suporte)",
-      value: "email@gmail.com",
-      href: "email@gmail.com",
-      shadowColor: "rgba(75,0,130,0.25)",
-    },
   ];
 
   return (
