@@ -135,7 +135,7 @@ const Footer = () => {
             © {new Date().getFullYear()} MarabáTec — Todos os direitos
             reservados.
           </p>
-          <p className="text-sm text-white/60 mt-1">CNPJ: 38.063.045/0001-88</p>
+          <p className="text-sm text-white/60 mt-1">CNPJ: 61.300.343/0001-66</p>
         </div>
       </div>
     </footer>
