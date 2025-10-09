@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Mail, Instagram, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Instagram, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Contact() {
@@ -9,14 +9,14 @@ export default function Contact() {
     {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       label: "Telefone / WhatsApp (Comercial)",
-      value: "(94) 99285-9465",
+      value: "+55 (94) 99285-9465",
       href: "https://wa.me/94992859465",
       shadowColor: "rgba(37,211,102,0.4)",
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       label: "Telefone / WhatsApp (Pedagogico / Administrativo)",
-      value: "(94) 9192-3687",
+      value: "+55 (94) 9192-3687",
       href: "https://wa.me/559491923687",
       shadowColor: "rgba(37,211,102,0.4)",
     },
