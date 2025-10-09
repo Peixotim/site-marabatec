@@ -60,7 +60,7 @@ export default function CourseInformations({
         phone: (formData.get("whatsapp") as string).replace(/\D/g, ""),
         areaOfInterest: formData.get("interestArea") as string,
         course: course.title,
-        enterpriseId: 4,
+        enterpriseId: Number(process.env.NEXT_PUBLIC_ENTERPRISE_ID),
       };
 
       await submitSubscription(data);

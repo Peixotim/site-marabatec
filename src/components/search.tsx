@@ -1,4 +1,4 @@
-import { Search, List, Flame, Star } from "lucide-react";
+import { Search, List, Flame, Star, MapPin } from "lucide-react";
 
 interface SearchSectionProps {
   searchTerm: string;
@@ -16,7 +16,6 @@ export default function SearchSection({
   return (
     <section className="w-full bg-gradient-to-b from-[#4B0082]/5 via-white py-16 px-4 sm:px-8 text-center">
       <div className="max-w-5xl mx-auto">
-        {/* Título */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#4B0082] tracking-tight drop-shadow-sm">
           Encontre seu <span className="text-[#F2960E]">Curso Ideal</span>
         </h2>
@@ -27,7 +26,7 @@ export default function SearchSection({
 
         {/* Campo de busca */}
         <div className="relative mt-10">
-          <div className="flex w-full max-w-3xl mx-auto rounded-2xl bg-white/90 shadow-lg shadow-purple-200/40 overflow-hidden ring-2 ring-transparent focus-within:ring-[#4B0082] transition-all duration-300 backdrop-blur-sm">
+          <div className="flex w-full max-w-3xl mx-auto rounded-2xl bg-white/90 shadow-lg overflow-hidden ring-2 ring-transparent focus-within:ring-[#4B0082] transition-all duration-300 backdrop-blur-sm">
             <input
               type="text"
               placeholder="Buscar por área, curso ou palavra-chave..."
@@ -45,38 +44,44 @@ export default function SearchSection({
         <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
           <button
             onClick={() => onFilterChange("todos")}
-            className={`flex items-center gap-2.5 pl-4 pr-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md ${
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
               activeFilter === "todos"
                 ? "bg-gradient-to-r from-[#F2960E] to-[#EE820F] text-white scale-105 shadow-lg"
                 : "bg-white text-[#4B0082] border border-slate-200 hover:bg-[#F9F5FF]"
             }`}
           >
-            <List size={18} />
-            Todos os Cursos
+            <List size={18} /> Todos os Cursos
           </button>
-
+          <button
+            onClick={() => onFilterChange("presenciais")}
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
+              activeFilter === "presenciais"
+                ? "bg-gradient-to-r from-[#4B0082] via-[#7F2CCB] to-[#F2960E] text-white scale-105 shadow-lg"
+                : "bg-white border border-[#4B0082] text-[#4B0082] hover:bg-purple-50"
+            }`}
+          >
+            <MapPin size={18} /> Presenciais
+          </button>
           <button
             onClick={() => onFilterChange("mais_clicados")}
-            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md ${
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
               activeFilter === "mais_clicados"
                 ? "bg-gradient-to-r from-[#4B0082] to-[#7F2CCB] text-white scale-105 shadow-lg"
                 : "bg-white border border-[#4B0082] text-[#4B0082] hover:bg-purple-50"
             }`}
           >
-            <Flame size={18} />
-            Mais Clicados
+            <Flame size={18} /> Mais Clicados
           </button>
 
           <button
             onClick={() => onFilterChange("lancamentos")}
-            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-md ${
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
               activeFilter === "lancamentos"
                 ? "bg-gradient-to-r from-[#FFD700] to-[#F2960E] text-[#4B0082] scale-105 shadow-lg"
                 : "bg-white border border-[#FFD700] text-[#B8860B] hover:bg-yellow-50"
             }`}
           >
-            <Star size={18} />
-            Lançamentos
+            <Star size={18} /> Lançamentos
           </button>
         </div>
       </div>
