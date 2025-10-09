@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
@@ -30,15 +30,27 @@ export default function Sidebar() {
   const [expanded, setExpanded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Fechar com ESC (mobile/desktop)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    if (menuOpen) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   return (
     <>
-      {/* 📱 Botão Mobile */}
-      <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 bg-gradient-to-r from-[#4B0082] to-[#803dcd] text-white p-3 rounded-xl shadow-xl hover:scale-105 hover:shadow-purple-400/30 transition-all duration-300"
-      >
-        {menuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+      {/* 📱 Botão Mobile (abre) — escondido quando o menu está aberto */}
+      {!menuOpen && (
+        <button
+          onClick={() => setMenuOpen(true)}
+          aria-label="Abrir menu"
+          className="lg:hidden fixed top-4 left-4 z-[60] bg-gradient-to-r from-[#4B0082] to-[#803dcd] text-white p-3 rounded-xl shadow-xl hover:scale-105 hover:shadow-purple-400/30 transition-all duration-300"
+        >
+          <Menu size={24} />
+        </button>
+      )}
 
       {/* 🖥️ Sidebar Desktop */}
       <motion.aside
@@ -155,57 +167,77 @@ export default function Sidebar() {
         </div>
       </motion.aside>
 
-      {/* 📱 Sidebar Mobile */}
+      {/* 📱 Overlay + Sidebar Mobile */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ x: -260 }}
-            animate={{ x: 0 }}
-            exit={{ x: -260 }}
-            transition={{ type: "spring", stiffness: 80 }}
-            className="fixed top-0 left-0 z-50 w-64 h-full bg-gradient-to-b from-[#3C1361] via-[#7F2CCB] to-[#4B0082] backdrop-blur-xl shadow-2xl p-6 flex flex-col justify-between rounded-r-3xl text-white"
-          >
-            <div className="flex flex-col items-center mb-6">
-              <div className="relative w-32 h-20 mb-3">
-                <Image
-                  src="/images/logo.png"
-                  alt="Logo completa MarabáTec"
-                  fill
-                  className="object-contain drop-shadow-lg"
-                />
-              </div>
-              <p className="text-lg font-bold">
-                MARABÁ<span className="text-[#F2960E]">TEC</span>
-              </p>
-              <p className="text-xs text-[#F2960E]/80 uppercase tracking-wide">
-                Colégio Técnico
-              </p>
-            </div>
+          <>
+            {/* Overlay clicável para fechar */}
+            <motion.button
+              aria-label="Fechar menu"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-[2px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMenuOpen(false)}
+            />
 
-            <ul className="space-y-6">
-              {menuItems.map((item, i) => (
-                <motion.li
-                  key={item.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.08 }}
+            {/* Painel lateral */}
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              initial={{ x: -280, opacity: 0.8 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -280, opacity: 0.8 }}
+              transition={{ type: "spring", stiffness: 90, damping: 16 }}
+              className="fixed top-0 left-0 z-50 w-64 h-full bg-gradient-to-b from-[#3C1361] via-[#7F2CCB] to-[#4B0082] backdrop-blur-xl shadow-2xl p-6 flex flex-col rounded-r-3xl text-white"
+            >
+              {/* Header com botão de fechar (único X) */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="relative w-32 h-20">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Logo completa MarabáTec"
+                    fill
+                    className="object-contain drop-shadow-lg"
+                    priority
+                  />
+                </div>
+
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  aria-label="Fechar menu"
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/15 border border-white/10 transition shadow-md"
                 >
-                  <Link
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-[#F2960E] transition-all duration-300"
-                  >
-                    {item.icon}
-                    <span>{item.name}</span>
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
+                  <X size={20} />
+                </button>
+              </div>
 
-            <p className="text-xs text-white/50 text-center mt-8">
-              © 2025 MarabáTec
-            </p>
-          </motion.div>
+              {/* Links */}
+              <ul className="space-y-6">
+                {menuItems.map((item, i) => (
+                  <motion.li
+                    key={item.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.08 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 hover:text-[#F2960E] transition-all duration-300"
+                    >
+                      {item.icon}
+                      <span>{item.name}</span>
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <p className="mt-auto text-xs text-white/50 text-center">
+                © 2025 MarabáTec
+              </p>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
