@@ -1,0 +1,177 @@
+"use client";
+
+import { HeartPulse, GraduationCap, Users, CheckCircle } from "lucide-react";
+import { useState, useCallback } from "react";
+import Modal from "@/components/modalContactsCourses/modal";
+import SubscriptionForm from "@/components/modalContactsCourses/SubscriptionForm";
+import { submitSubscription } from "@/components/lib/api";
+
+export default function Enfermagem() {
+  const depoimentos = [
+    {
+      nome: "Ana Clara",
+      texto:
+        "A estrutura do curso e os professores são incríveis! Saí preparada para o mercado de trabalho.",
+    },
+    {
+      nome: "Lucas Andrade",
+      texto:
+        "Aprendi na prática, com experiências reais de hospital. Recomendo muito!",
+    },
+  ];
+
+  // Controle do modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState<"form" | "loading" | "success">(
+    "form"
+  );
+  const [whatsappMessage, setWhatsappMessage] = useState("");
+  const WHATSAPP_NUMBER = "5531982631563";
+
+  const openModal = () => {
+    setFormStatus("form");
+    setIsModalOpen(true);
+  };
+  const closeModal = useCallback(() => setIsModalOpen(false), []);
+
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormStatus("loading");
+    try {
+      const formData = new FormData(event.currentTarget);
+      const data = {
+        name: formData.get("name") as string,
+        phone: (formData.get("whatsapp") as string).replace(/\D/g, ""),
+        areaOfInterest: formData.get("interestArea") as string,
+        course: "Curso Técnico em Enfermagem",
+        enterpriseId: Number(process.env.NEXT_PUBLIC_ENTERPRISE_ID),
+      };
+      await submitSubscription(data);
+      const message = `Olá! Meu nome é ${data.name} e tenho interesse no curso de Enfermagem. Gostaria de mais informações sobre a matrícula.`;
+      setWhatsappMessage(message);
+      setFormStatus("success");
+    } catch (error) {
+      console.error("Erro ao enviar o formulário:", error);
+      alert("Houve um problema. Por favor, tente novamente.");
+      setFormStatus("form");
+    }
+  };
+
+  const handleWhatsAppRedirect = () => {
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+    closeModal();
+  };
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white via-[#F9F5FF] to-white text-[#4B0082] relative overflow-hidden">
+      {/* Fundo decorativo suave */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#E5D0FF]/30 via-transparent to-[#F2960E]/20 pointer-events-none" />
+
+      {/* Hero */}
+      <section className="relative text-center py-28 bg-gradient-to-r from-[#7F2CCB] via-[#4B0082] to-[#7F2CCB] text-white shadow-xl overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-5xl font-black mb-4 animate-fade-in-down">
+            Curso Técnico em Enfermagem
+          </h1>
+          <p className="text-white/90 text-lg max-w-2xl mx-auto animate-fade-in-up">
+            Desenvolva habilidades técnicas e humanas para cuidar com
+            excelência. Formação reconhecida e com aulas práticas presenciais.
+          </p>
+          <button
+            onClick={openModal}
+            className="mt-8 px-8 py-4 bg-white/10 border border-white/20 rounded-xl font-semibold text-white text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300"
+          >
+            Quero me inscrever agora
+          </button>
+        </div>
+      </section>
+
+      {/* Benefícios */}
+      <section className="max-w-6xl mx-auto py-20 px-6 space-y-16 relative z-10">
+        <div className="grid md:grid-cols-3 gap-10 text-center">
+          {[
+            {
+              icon: <HeartPulse size={44} className="mx-auto text-[#F2960E]" />,
+              title: "Aulas Práticas",
+              desc: "Aprenda com aulas presenciais que simulam experiências reais de hospital.",
+            },
+            {
+              icon: (
+                <GraduationCap size={44} className="mx-auto text-[#F2960E]" />
+              ),
+              title: "Certificação Reconhecida",
+              desc: "Receba certificação válida em todo o território nacional.",
+            },
+            {
+              icon: <Users size={44} className="mx-auto text-[#F2960E]" />,
+              title: "Professores Especialistas",
+              desc: "Conte com instrutores experientes e apaixonados pelo ensino da saúde.",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="p-8 rounded-2xl bg-white shadow-lg border border-[#E5D0FF]/40 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              {item.icon}
+              <h3 className="font-bold mt-3 text-lg text-[#4B0082]">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-sm mt-2">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Depoimentos */}
+        <div className="bg-gradient-to-br from-[#F9F5FF] to-white p-10 rounded-3xl shadow-2xl border border-[#E5D0FF]/50">
+          <h2 className="text-3xl font-bold mb-10 text-center text-[#4B0082]">
+            Depoimentos de Alunos
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {depoimentos.map((d, i) => (
+              <blockquote
+                key={i}
+                className="p-6 rounded-2xl bg-white shadow-md border-l-4 border-[#7F2CCB]"
+              >
+                <p className="italic text-gray-700 mb-3">“{d.texto}”</p>
+                <footer className="text-[#F2960E] font-semibold">
+                  {d.nome}
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Final */}
+        <div className="mt-20 bg-gradient-to-r from-[#4B0082] via-[#7F2CCB] to-[#4B0082] rounded-3xl p-10 text-center text-white shadow-2xl">
+          <h3 className="text-3xl font-bold mb-4">
+            Garanta sua vaga agora mesmo!
+          </h3>
+          <p className="text-white/90 mb-6 max-w-xl mx-auto">
+            Dê o próximo passo em sua carreira e conquiste certificação técnica
+            reconhecida nacionalmente.
+          </p>
+          <button
+            onClick={openModal}
+            className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-xl px-8 py-4 text-lg font-semibold hover:bg-white/20 hover:scale-105 transition-all duration-300"
+          >
+            <CheckCircle size={22} className="text-[#F2A413]" />
+            Quero me inscrever
+          </button>
+        </div>
+      </section>
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <SubscriptionForm
+          formStatus={formStatus}
+          onSubmit={handleFormSubmit}
+          onCancel={closeModal}
+          onSuccessRedirect={handleWhatsAppRedirect}
+          selectedContent="Curso Técnico em Enfermagem"
+        />
+      </Modal>
+    </main>
+  );
+}
