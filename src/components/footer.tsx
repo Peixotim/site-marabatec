@@ -110,10 +110,10 @@ const Footer = () => {
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#F2A413]" />
                 <a
-                  href="mailto:gestaoavancatec@gmail.com"
+                  href="mailto:gestaodecontatos@colegiomarabatec.com.br"
                   className="hover:text-[#F2A413] transition-colors"
                 >
-                  gestaoavancatec@gmail.com
+                  gestaodecontatos@colegiomarabatec.com.br
                 </a>
               </li>
               <li className="flex items-center space-x-3">

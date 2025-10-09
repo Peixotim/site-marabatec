@@ -108,10 +108,10 @@ export default function PoliticaPrivacidade() {
               portabilidade dos seus dados. Para exercer esses direitos, entre
               em contato conosco pelo e-mail{" "}
               <a
-                href="mailto:gestaoavancatec@gmail.com"
+                href="mailto:gestaodecontatos@colegiomarabatec.com.br"
                 className="text-[#4B0082] font-semibold hover:text-[#F2960E] hover:underline transition-colors"
               >
-                gestaoavancatec@gmail.com
+                gestaodecontatos@colegiomarabatec.com.br
               </a>
               .
             </p>

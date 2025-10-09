@@ -23,8 +23,8 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6 text-[#EA4335]" />,
       label: "E-mail",
-      value: "gestaoavancatec@gmail.com",
-      href: "mailto:gestaoavancatec@gmail.com",
+      value: "gestaodecontatos@colegiomarabatec.com.br",
+      href: "mailto:gestaodecontatos@colegiomarabatec.com.br",
       shadowColor: "rgba(234,67,53,0.35)",
     },
     {
