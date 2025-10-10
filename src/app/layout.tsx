@@ -81,6 +81,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <meta name="theme-color" content="#024E0E" />
+        <meta
+          name="google-site-verification"
+          content="2OJFiuwDv2e14O4Vb41KUDDSFW-5N1yVrTPy_bGSAYw"
+        />
       </head>
 
       <body
