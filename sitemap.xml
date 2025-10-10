@@ -44,4 +44,10 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+    <url>
+    <loc>https://colegiomarabatec.com.br/cursos</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>
