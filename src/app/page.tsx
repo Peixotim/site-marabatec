@@ -35,6 +35,8 @@ export default function Home() {
       matchesFilter =
         card.category === "Curso Técnico em Enfermagem" ||
         card.category === "Curso de Refrigeração e Climatização";
+    } else if (activeFilter === "eja") {
+      matchesFilter = card.category === "Educação de Jovens e Adultos (EJA)";
     }
 
     return matchesSearch && matchesFilter;

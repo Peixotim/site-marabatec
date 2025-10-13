@@ -1,4 +1,4 @@
-import { Search, List, Flame, Star, MapPin } from "lucide-react";
+import { Search, List, Flame, Star, MapPin, BookOpen } from "lucide-react";
 
 interface SearchSectionProps {
   searchTerm: string;
@@ -20,8 +20,9 @@ export default function SearchSection({
           Encontre seu <span className="text-[#F2960E]">Curso Ideal</span>
         </h2>
         <p className="max-w-2xl mx-auto mt-4 text-lg text-slate-700 leading-relaxed">
-          Explore nossa ampla gama de cursos técnicos e de pós-graduação e
-          encontre o que melhor se adapta aos seus objetivos profissionais.
+          Explore nossa ampla gama de cursos técnicos, profissionalizantes e de
+          educação para jovens e adultos — encontre o que combina com o seu
+          futuro!
         </p>
 
         {/* Campo de busca */}
@@ -42,6 +43,7 @@ export default function SearchSection({
 
         {/* Filtros */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+          {/* Todos */}
           <button
             onClick={() => onFilterChange("todos")}
             className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
@@ -52,6 +54,8 @@ export default function SearchSection({
           >
             <List size={18} /> Todos os Cursos
           </button>
+
+          {/* Presenciais */}
           <button
             onClick={() => onFilterChange("presenciais")}
             className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
@@ -62,6 +66,8 @@ export default function SearchSection({
           >
             <MapPin size={18} /> Presenciais
           </button>
+
+          {/* Mais Clicados */}
           <button
             onClick={() => onFilterChange("mais_clicados")}
             className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
@@ -73,6 +79,7 @@ export default function SearchSection({
             <Flame size={18} /> Mais Clicados
           </button>
 
+          {/* Lançamentos */}
           <button
             onClick={() => onFilterChange("lancamentos")}
             className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
@@ -82,6 +89,18 @@ export default function SearchSection({
             }`}
           >
             <Star size={18} /> Lançamentos
+          </button>
+
+          {/* 🧠 Filtro EJA */}
+          <button
+            onClick={() => onFilterChange("eja")}
+            className={`flex items-center gap-2.5 px-5 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
+              activeFilter === "eja"
+                ? "bg-gradient-to-r from-[#4B0082] via-[#7F2CCB] to-[#F2960E] text-white scale-105 shadow-lg"
+                : "bg-white border border-[#4B0082] text-[#4B0082] hover:bg-purple-50"
+            }`}
+          >
+            <BookOpen size={18} /> EJA
           </button>
         </div>
       </div>

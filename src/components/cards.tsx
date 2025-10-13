@@ -19,6 +19,7 @@ export interface CardPageProps {
   bgColorHover: string;
   duration?: string;
   studentCount?: number;
+  redirectTo?: string; // 🔗 rota direta (ex: /eja)
 }
 
 export default function CardPage({
@@ -29,15 +30,16 @@ export default function CardPage({
   bgColorCategory,
   duration,
   studentCount,
+  redirectTo,
 }: CardPageProps) {
   const courseSlug = slugify(category);
 
   return (
     <div
-      className="group w-full max-w-sm rounded-3xl border-2 border-[#]
+      className="group w-full max-w-sm rounded-3xl border-2 border-transparent
       bg-white p-6 shadow-md hover:shadow-lg hover:-translate-y-2 
       transition-all duration-500 ease-out flex flex-col font-sans overflow-hidden
-      hover:border-[#]"
+      hover:border-[#7F2CCB]/40"
     >
       {/* Cabeçalho */}
       <div className="flex items-center justify-between mb-4">
@@ -99,10 +101,10 @@ export default function CardPage({
           </div>
         </div>
 
-        {/* Botão */}
+        {/* 🔘 Botão Dinâmico */}
         <div className="mt-auto">
           <Link
-            href={`/cursos/${courseSlug}`}
+            href={redirectTo ? redirectTo : `/cursos/${courseSlug}`}
             className="block w-full text-center py-3 rounded-xl font-semibold 
             bg-gradient-to-r from-[#4B0082] via-[#7F2CCB] to-[#4B0082]
             text-white transition-all duration-500 

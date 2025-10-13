@@ -17,11 +17,36 @@ export default function Storaged(): CardPageProps[] {
         src: "",
         alt: "Profissionais da saúde em uma discussão de caso",
       },
+      
       bgColorFlag: "bg-red-100 text-red-800",
       bgColorCategory: "bg-red-800 text-red-800",
       bgColorHover: "hover:bg-red-700",
       maisClicado: true,
       lancamentos: false,
+    },
+   {
+      title: "📘 EJA – Conclua Seus Estudos e Mude de Vida",
+      description:
+        "Ainda dá tempo! Termine o Ensino Fundamental ou Médio com flexibilidade, aulas acessíveis e certificado reconhecido em todo o Brasil.",
+      category: "Educação de Jovens e Adultos (EJA)",
+      flag: "🌟 Nova Oportunidade",
+      benneficies: [
+        "Estude no seu ritmo",
+        "Aulas online e presenciais",
+        "Certificação válida em todo o país",
+      ],
+      img: {
+        src: " ",
+        alt: "Pessoa estudando com caderno e computador",
+      },
+      bgColorFlag: "bg-yellow-100 text-yellow-800",
+      bgColorCategory: "bg-green-700 text-white",
+      bgColorHover: "hover:bg-green-800",
+      maisClicado: true,
+      lancamentos: true,
+      duration: "Conclua em até 18 meses",
+      studentCount: 1200,
+      redirectTo: "/eja",
     },
     {
       title: "Administração & Gestão – Liderança na Prática",
