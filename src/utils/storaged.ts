@@ -2,29 +2,7 @@ import { CardPageProps } from "../components/cards";
 
 export default function Storaged(): CardPageProps[] {
   return [
-    {
-      title: "Área da Saúde – Sua Carreira com Propósito",
-      description:
-        "🚨 Últimas vagas! Torne-se referência na saúde. Aprenda com especialistas e garanta certificação reconhecida. Trabalhe salvando vidas e tenha estabilidade no setor que mais cresce no Brasil!",
-      category: "Saúde",
-      flag: "🔥 Últimas Vagas",
-      benneficies: [
-        "Estude no seu ritmo",
-        "Certificação Nacional",
-        "Conteúdo atualizado com tendências",
-      ],
-      img: {
-        src: "",
-        alt: "Profissionais da saúde em uma discussão de caso",
-      },
-      
-      bgColorFlag: "bg-red-100 text-red-800",
-      bgColorCategory: "bg-red-800 text-red-800",
-      bgColorHover: "hover:bg-red-700",
-      maisClicado: true,
-      lancamentos: false,
-    },
-   {
+       {
       title: "📘 EJA – Conclua Seus Estudos e Mude de Vida",
       description:
         "Ainda dá tempo! Termine o Ensino Fundamental ou Médio com flexibilidade, aulas acessíveis e certificado reconhecido em todo o Brasil.",
@@ -47,6 +25,28 @@ export default function Storaged(): CardPageProps[] {
       duration: "Conclua em até 18 meses",
       studentCount: 1200,
       redirectTo: "/eja",
+    },
+    {
+      title: "Área da Saúde – Sua Carreira com Propósito",
+      description:
+        "🚨 Últimas vagas! Torne-se referência na saúde. Aprenda com especialistas e garanta certificação reconhecida. Trabalhe salvando vidas e tenha estabilidade no setor que mais cresce no Brasil!",
+      category: "Saúde",
+      flag: "🔥 Últimas Vagas",
+      benneficies: [
+        "Estude no seu ritmo",
+        "Certificação Nacional",
+        "Conteúdo atualizado com tendências",
+      ],
+      img: {
+        src: "",
+        alt: "Profissionais da saúde em uma discussão de caso",
+      },
+      
+      bgColorFlag: "bg-red-100 text-red-800",
+      bgColorCategory: "bg-red-800 text-red-800",
+      bgColorHover: "hover:bg-red-700",
+      maisClicado: true,
+      lancamentos: false,
     },
     {
       title: "Administração & Gestão – Liderança na Prática",
