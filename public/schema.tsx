@@ -7,6 +7,12 @@ export default function SchemaOrg() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "Colégio MarabáTec",
+    alternateName: [
+      "MarabáTec",
+      "Colégio Técnico MarabáTec",
+      "MarabáTec Educação Profissional",
+      "Colégio MarabáTec Canaã dos Carajás",
+    ],
     image: "https://colegiomarabatec.com.br/logo.png",
     "@id": "https://colegiomarabatec.com.br",
     url: "https://colegiomarabatec.com.br",
